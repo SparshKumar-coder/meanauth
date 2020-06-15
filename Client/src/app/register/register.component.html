@@ -1,0 +1,55 @@
+
+
+<div class="container" style="text-align: center;">
+
+    <p style="color: red;">{{errors}}</p>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-8 mx-auto" style="margin-top: 12%;">
+
+        <div class="card rounded-0" style="border: 2px solid black;">
+
+            <div class="card-header" style="text-align:center;border-bottom: 2px solid black;">
+
+                <h3 class="mb-0">Register</h3>
+
+            </div>
+
+            <div class="card-body">
+
+                <div *ngFor="let formInput of FormInputs">
+
+                    <div class="form-group">
+
+                        <label for="" style="font-weight: bold;">{{formInput.label}}</label>
+                        <input [(ngModel)]="formInput.value" type="{{formInput.type}}" placeholder="{{formInput.placeholder}}" style="border: 2px solid black;" class="form-control rounded-10" required>
+
+                    </div>
+
+                </div>
+
+                <!-- Here goes the logic for Role default checked at admin -->
+
+                <h6 style="font-weight:bold; margin-top: 4%;margin-bottom: 4%;">Please Select Your Role</h6>
+                <div class="container">
+
+                    <div *ngFor="let role of Roles">
+
+                        <input [(ngModel)]="role.isChecked" (click)="ChangingCheckBoxState(role.Index)" type="checkbox" class="form-check-input"><label style="font-weight: bold;">{{role.name}}</label>
+
+                    </div>
+
+                </div>
+
+                <button type="button" (click)="SubmitRegister()" class="btn btn-primary float-right">Register</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

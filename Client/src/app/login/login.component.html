@@ -1,0 +1,44 @@
+
+
+<div class="container" style="text-align: center;">
+
+    <p style="color: red;">{{errors}}</p>
+
+</div>
+
+
+<div class="row">
+
+    <div class="col-md-8 mx-auto" style="margin-top: 12%;">
+
+        <div class="card rounded-0" style="border: 2px solid black;">
+
+            <div class="card-header" style="text-align:center;border-bottom: 2px solid black;">
+
+                <h3 class="mb-0">Login</h3>
+
+            </div>
+
+            <div class="card-body">
+
+                <!-- The Login Form goes Here -->
+                <div *ngFor="let formInput of FormInputs">
+
+                    <div class="form-group">
+
+                        <label for="" style="font-weight: bold;">{{formInput.label}}</label>
+                        <input [(ngModel)]="formInput.value" type="{{formInput.type}}" placeholder="{{formInput.placeholder}}" style="border: 2px solid black;" class="form-control rounded-10" required>
+
+                    </div>
+
+                </div>
+
+                <button type="button" (click)="SubmitLogin()" class="btn btn-primary float-right">Login</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
